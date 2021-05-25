@@ -1,1 +1,4 @@
 /* Here is your custom css styles. */
+.inline-block-container .img-item{
+	display: inline-block;
+}
