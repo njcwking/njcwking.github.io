@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>COLORFUL</title>
+  
+  <subtitle>愿你归来仍是少年</subtitle>
+  <link href="http://example.com/atom.xml" rel="self"/>
+  
+  <link href="http://example.com/"/>
+  <updated>2021-05-25T01:15:21.909Z</updated>
+  <id>http://example.com/</id>
+  
+  <author>
+    <name>Wei Chen</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Android Fragment多场景下懒加载实现</title>
+    <link href="http://example.com/2021/05/25/android-fragment-duo-chang-jing-xia-lan-jia-zai-shi-xian/"/>
+    <id>http://example.com/2021/05/25/android-fragment-duo-chang-jing-xia-lan-jia-zai-shi-xian/</id>
+    <published>2021-05-25T01:15:21.000Z</published>
+    <updated>2021-05-25T01:15:21.909Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+</feed>
