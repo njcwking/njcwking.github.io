@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Android,Fragment,懒加载,ViewPager+Fragment">
+    <meta name="keywords" content="iOS,自定义UIView,绘制,Core Graphics">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Android Fragment多场景下懒加载实现 | COLORFUL</title>
+    <title>iOS开发：自定义View基础绘图方法（C语言Core Graphics实现篇） | COLORFUL</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -480,12 +480,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMgoT21YfmVZD9Wxk0YmW3v7hbOT5FeB72Zw&usqp=CAU')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://www.v1tx.com/wp-content/uploads/2020/03/20200328085647055-1024x697.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Android Fragment多场景下懒加载实现</h1>
+                    <h1 class="description center-align post-title">iOS开发：自定义View基础绘图方法（C语言Core Graphics实现篇）</h1>
                 </div>
             </div>
         </div>
@@ -601,16 +601,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Android/">
-                                <span class="chip bg-color">Android</span>
-                            </a>
-                        
-                            <a href="/tags/Fragment/">
-                                <span class="chip bg-color">Fragment</span>
-                            </a>
-                        
                             <a href="/tags/%E5%8E%9F%E5%88%9B/">
                                 <span class="chip bg-color">原创</span>
+                            </a>
+                        
+                            <a href="/tags/iOS/">
+                                <span class="chip bg-color">iOS</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%BB%98%E5%88%B6/">
+                                <span class="chip bg-color">绘制</span>
                             </a>
                         
                     </div>
@@ -625,8 +625,8 @@
                                 知识点
                             </a>
                         
-                            <a href="/categories/%E7%9F%A5%E8%AF%86%E7%82%B9/Android/" class="post-category">
-                                Android
+                            <a href="/categories/%E7%9F%A5%E8%AF%86%E7%82%B9/iOS/" class="post-category">
+                                iOS
                             </a>
                         
                     </div>
@@ -638,7 +638,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-05-25
+                    2021-06-07
                 </div>
                 
 
@@ -647,7 +647,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    1.4k
                 </div>
                 
 
@@ -667,7 +667,294 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h2 id="0x00-通用方法"><a href="#0x00-通用方法" class="headerlink" title="0x00 通用方法"></a>0x00 通用方法</h2><h3 id="1、获取当前上下文"><a href="#1、获取当前上下文" class="headerlink" title="1、获取当前上下文"></a>1、获取当前上下文</h3><pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">// 获取当前上下文
+CGContextRef ref = UIGraphicsGetCurrentContext();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3 id="2、重绘"><a href="#2、重绘" class="headerlink" title="2、重绘"></a>2、重绘</h3><pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">[self setNeedsDisplay];<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="3、状态保存"><a href="#3、状态保存" class="headerlink" title="3、状态保存"></a>3、状态保存</h3><pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">// 状态保存
+CGContextSaveGState(ref);
+// 状态恢复
+CGContextRestoreGState(ref);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="4、矩阵操作"><a href="#4、矩阵操作" class="headerlink" title="4、矩阵操作"></a>4、矩阵操作</h3><blockquote>
+<p>矩阵方法必须在绘制之前调用</p>
+</blockquote>
+<pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">// 获取图形上下文
+CGContextRef ref = UIGraphicsGetCurrentContext();
+
+// 平移
+CGContextTranslateCTM(ref,x,y);
+//缩放
+CGContextScaleCTM(ref,x,y);
+// 旋转
+CGContextRotateCTM(ref,angle);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="5、裁剪"><a href="#5、裁剪" class="headerlink" title="5、裁剪"></a>5、裁剪</h3><pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">// 获取图形上下文
+CGContextRef ref = UIGraphicsGetCurrentContext();
+// 裁剪
+CGContextClip(ref);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="6、混合模式"><a href="#6、混合模式" class="headerlink" title="6、混合模式"></a>6、混合模式</h3><pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">// 获取图形上下文
+CGContextRef ref = UIGraphicsGetCurrentContext();
+/**
+ *  kCGBlendModeClear,                  /* R = 0 */
+ *  kCGBlendModeCopy,                   /* R = S */
+ *  kCGBlendModeSourceIn,               /* R = S*Da */
+ *  kCGBlendModeSourceOut,              /* R = S*(1 - Da) */
+ *  kCGBlendModeSourceAtop,             /* R = S*Da + D*(1 - Sa) */
+ *  kCGBlendModeDestinationOver,        /* R = S*(1 - Da) + D */
+ *  kCGBlendModeDestinationIn,          /* R = D*Sa */
+ *  kCGBlendModeDestinationOut,         /* R = D*(1 - Sa) */
+ *  kCGBlendModeDestinationAtop,        /* R = S*(1 - Da) + D*Sa */
+ *  kCGBlendModeXOR,                    /* R = S*(1 - Da) + D*(1 - Sa) */
+ *  kCGBlendModePlusDarker,             /* R = MAX(0, (1 - D) + (1 - S)) */
+ *  kCGBlendModePlusLighter             /* R = MIN(1, S + D) */
+ **/
+CGContextSetBlendMode(con, kCGBlendModeClear);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="7、清除矩形区域"><a href="#7、清除矩形区域" class="headerlink" title="7、清除矩形区域"></a>7、清除矩形区域</h3><blockquote>
+<p>依赖于上下文是否透明，透明则显示透明色，不透明显示黑色</p>
+</blockquote>
+<pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">// 获取图形上下文
+CGContextRef ref = UIGraphicsGetCurrentContext();
+// 清除指定区域
+CGContextClearRect(ref, CGRectMake(0, 0, 100, 100));<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="0x01-绘制路径"><a href="#0x01-绘制路径" class="headerlink" title="0x01 绘制路径"></a>0x01 绘制路径</h2><h3 id="0、画图相关样式参数设置"><a href="#0、画图相关样式参数设置" class="headerlink" title="0、画图相关样式参数设置"></a>0、画图相关样式参数设置</h3><pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">// 获取图形上下文
+CGContextRef ref = UIGraphicsGetCurrentContext();
+...
+// 设置笔触颜色
+CGContextSetStrokeColorWithColor(ref, [UIColor blackColor].CGColor);
+// 设置笔触宽度
+CGContextSetLineWith(ref, 2);
+// 设置填充色
+// CGContextSetRGBFillColor(ref, 1, 0, 0, 1.0);
+CGContextSetFillColorWithColor(ref, [UIColor purpleColor].CGColor);
+//设置拐点样式
+//    enum CGLineJoin {
+//        kCGLineJoinMiter, //尖的，斜接
+//        kCGLineJoinRound, //圆
+//        kCGLineJoinBevel //斜面
+//    };
+CGContextSetLineJoin(ref, kCGLineJoinRound);
+//Line cap 线的两端的样式
+//    enum CGLineCap {
+//        kCGLineCapButt,
+//        kCGLineCapRound,
+//        kCGLineCapSquare
+//    };
+CGContextSetLineCap(ref, kCGLineCapSquare);
+
+//void CGContextSetLineDash (
+//                               CGContextRef c,
+//                               CGFloat phase, // 虚线从哪开始绘制
+//                               CGFloat* lengths, //虚线的长度CGFloat lengths[] = { 20, 5 };表示长度为20，间隙长度为5
+//                               CGFloat count, //lengths数组的个数
+//                               );
+// 设置虚线样式
+CGFloat lengths[] = { 20, 5 };
+CGContextSetLineDash(ref, 0, lengths, 2);
+
+...
+// 描出路径
+// CGContextDrawPath(ref, kCGPathStroke);
+CGContextStrokePath(ref);
+
+// 填充路径
+// CGContextDrawPath(ref, kCGPathFill);
+CGContextFillPath(ref);
+
+// 描出路径并设置填充
+CGContextDrawPath(ref, kCGPathFillStroke);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="1、-直线"><a href="#1、-直线" class="headerlink" title="1、 直线"></a>1、 直线</h3><pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">// 获取图形上下文
+CGContextRef ref = UIGraphicsGetCurrentContext();
+
+//使用C方式绘制路径
+CGMutablePathRef pathc = CGPathCreateMutable();
+CgPathMoveToPath(pathc, NULL, 50, 50);
+CgPathAddLineToPoint(pathc, NULL, 100, 100);
+/**
+ * 在原有C的绘制路径方式再结合使用OC方式绘制路径
+ * 通过OC中bezierPathWithCGPath方式将C的路径转换成OC形式
+ */
+UIBezierPath *pathoc = [UIBezierPath bezierPathWithCGPath:pathc];
+// 设置路径起点
+[pathoc moveToPoint:CGPointMake(50,50)];
+// 添加线条
+[pathoc addLineToPoint:CGPointMake(100,150)];
+[pathoc addLineToPoint:CGPointMake(0,200)];
+//将OC的绘图方式转换成C并且添加到上下文中
+CGContextAddPath(ref,pathoc.CGPath);
+// 渲染视图
+CGContextStrokePath(ref);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="2、曲线"><a href="#2、曲线" class="headerlink" title="2、曲线"></a>2、曲线</h3><pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">// 获取图形上下文
+CGContextRef ref = UIGraphicsGetCurrentContext();
+//三次曲线函数
+//void CGContextAddCurveToPoint (
+//                               CGContextRef c,
+//                               CGFloat cp1x, //控制点1 x坐标
+//                               CGFloat cp1y, //控制点1 y坐标
+//                               CGFloat cp2x, //控制点2 x坐标
+//                               CGFloat cp2y, //控制点2 y坐标
+//                               CGFloat x,  //直线的终点 x坐标
+//                               CGFloat y  //直线的终点 y坐标
+//                               );
+
+CGContextMoveToPoint(ref, 200, 200);
+CGContextAddCurveToPoint(ref, 200, 0, 300, 200, 400, 100);
+CGContextStrokePath(ref);
+
+//三次曲线可以画圆弧，比如这里画一条之前用CGContextAddArcToPoint构成的圆弧
+CGContextMoveToPoint(ref, 200, 200);
+CGContextAddCurveToPoint(ref, 200, 100, 300, 100, 300 ,100);
+CGContextStrokePath(ref);
+
+//二次曲线函数
+//void CGContextAddQuadCurveToPoint (
+//                                   CGContextRef c,
+//                                   CGFloat cpx,  //控制点 x坐标
+//                                   CGFloat cpy,  //控制点 y坐标
+//                                   CGFloat x,  //直线的终点 x坐标
+//                                   CGFloat y  //直线的终点 y坐标
+//                                   );
+
+CGContextMoveToPoint(ref, 100, 100);
+CGContextAddQuadCurveToPoint(ref, 200, 0, 300, 150);
+CGContextStrokePath(ref);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="3、矩形"><a href="#3、矩形" class="headerlink" title="3、矩形"></a>3、矩形</h3><pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">// 获取图形上下文
+CGContextRef ref = UIGraphicsGetCurrentContext();
+
+// 画矩形，长宽相等就是正方形
+CGContextAddRect(ref, CGRectMake(70,250,50,50));
+
+// 填充
+CGContextFillPath(ref);
+
+// 画矩形
+// CGContextStrokeRect(ref, CGRectMake(100, 120, 10, 10));
+// 填充矩形
+// CGContextFillRect(ref, CGRectMake(100, 120, 10, 10));<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="4、圆角矩形"><a href="#4、圆角矩形" class="headerlink" title="4、圆角矩形"></a>4、圆角矩形</h3><pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">// 获取图形上下文
+CGContextRef ref = UIGraphicsGetCurrentContext();
+
+CGFloat fw = 180;
+CGFloat fh = 280;
+CGFloat raduis = 10;
+
+// 通过路径画圆角矩形
+CGContextMoveToPoint(ref, fw, fh-20);  // 开始坐标右边开始
+CGContextAddArcToPoint(ref, fw, fh, fw-20, fh, raduis);  // 右下角角度
+CGContextAddArcToPoint(ref, 120, fh, 120, fh-20, raduis); // 左下角角度
+CGContextAddArcToPoint(ref, 120, 250, fw-20, 250, raduis); // 左上角
+CGContextAddArcToPoint(ref, fw, 250, fw, fh-20, raduis); // 右上角
+CGContextClosePath(ref);
+
+// 填充
+CGContextFillPath(ref);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="5、多边形"><a href="#5、多边形" class="headerlink" title="5、多边形"></a>5、多边形</h3><pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">// 获取图形上下文
+CGContextRef ref = UIGraphicsGetCurrentContext();
+
+//画多边形，多边形是通过path完成的
+CGMutablePathRef path = CGPathCreateMutable();
+CGPathMoveToPoint(path, &amp;CGAffineTransformIdentity, 120, 250);
+CGPathAddLineToPoint(path, &amp;CGAffineTransformIdentity, 200, 250);
+CGPathAddLineToPoint(path, &amp;CGAffineTransformIdentity, 180, 300);
+CGPathCloseSubpath(path);
+CGContextAddPath(ref, path);
+
+// 填充
+CGContextFillPath(ref);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="6、椭圆（圆）"><a href="#6、椭圆（圆）" class="headerlink" title="6、椭圆（圆）"></a>6、椭圆（圆）</h3><pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">// 获取图形上下文
+CGContextRef ref = UIGraphicsGetCurrentContext();
+
+// 画椭圆，如果长宽相等就是圆
+CGContextAddEllipseInRect(ref, CGRectMake(0,250,50,50));
+
+// 填充
+CGContextFillPath(ref);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="7、圆形"><a href="#7、圆形" class="headerlink" title="7、圆形"></a>7、圆形</h3><pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">// 获取图形上下文
+CGContextRef ref = UIGraphicsGetCurrentContext();
+
+// 画圆
+CGContextAddArc (ref, 100, 100, 50, 0, M_PI* 2 , 0);
+
+// 半圆
+CGContextAddArc (ref, 100, 200, 50, 0, M_PI, 0);
+// 描线
+CGContextStrokePath(ref);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="8、弧形"><a href="#8、弧形" class="headerlink" title="8、弧形"></a>8、弧形</h3><pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">// 获取图形上下文
+CGContextRef ref = UIGraphicsGetCurrentContext();
+// 半圆弧
+// void CGContextAddArc(CGContextRef cg_nullable c, CGFloat x, CGFloat y,
+//     CGFloat radius, CGFloat startAngle, CGFloat endAngle, int clockwise)
+// (x,y)：圆心位置
+// radius：圆半径
+// startAngle,endAngle：开始和结束角度
+// clockwise：0:顺时针 其它：逆时针
+CGContextAddArc (ref, 100, 200, 50, 0, M_PI, 0);
+// 描线
+CGContextStrokePath(ref);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="9、扇形"><a href="#9、扇形" class="headerlink" title="9、扇形"></a>9、扇形</h3><pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">// 获取图形上下文
+CGContextRef ref = UIGraphicsGetCurrentContext();
+
+CGContextMoveToPoint(ref, 160, 180); 
+// void CGContextAddArc(CGContextRef cg_nullable c, CGFloat x, CGFloat y,
+//     CGFloat radius, CGFloat startAngle, CGFloat endAngle, int clockwise)
+// (x,y)：圆心位置
+// radius：圆半径
+// startAngle,endAngle：开始和结束角度
+// clockwise：0:顺时针 其它：逆时针
+CGContextAddArc(ref, 160, 180, 30,  -60 * M_PI / 180, -120 * M_PI / 180, 1);
+CGContextClosePath(ref);
+
+// 描线
+CGContextStrokePath(ref);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="0x02-文字"><a href="#0x02-文字" class="headerlink" title="0x02 文字"></a>0x02 文字</h2><pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">// 定义文字字体样式
+UIFont *font = [UIFont boldSystemFontOfSize: 15.0];
+NSString *text = @"文字";
+// 将文字绘制到指定区域
+[text drawInRect: CGRectMake(10, 20, 80, 20) withFont: font];<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="0x03-图片"><a href="#0x03-图片" class="headerlink" title="0x03 图片"></a>0x03 图片</h2><h3 id="1、自定义View-drawRect方法中调用"><a href="#1、自定义View-drawRect方法中调用" class="headerlink" title="1、自定义View.drawRect方法中调用"></a>1、自定义View.drawRect方法中调用</h3><pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">UIImage *image = [UIImage imageNamed:@"apple.jpg"];
+// 在指定的范围内绘制出完整图片
+[image drawInRect: CGRectMake(60, 340, 20, 20)];
+// 保持图片大小在point点开始画图片
+//[image drawAtPoint: CGPointMake(100, 340)];
+
+// 获取图形上下文
+// CGContextRef ref = UIGraphicsGetCurrentContext();
+// 使用这个绘制图片，图片会上下颠倒（原因：UIKit和CG坐标系y轴相反）
+// 解决办法：https://blog.csdn.net/ipoolo/article/details/84622028
+// CGContextDrawImage(ref, CGRectMake(60, 340, 20, 20), image.CGImage);
+
+// 绘制平铺图片
+// CGContextDrawTiledImage(ref, CGRectMake(0, 0, 24, 24), image.CGImage);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="2、创建和绘制图片"><a href="#2、创建和绘制图片" class="headerlink" title="2、创建和绘制图片"></a>2、创建和绘制图片</h3><pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">// 声明开始图片上下文
+UIGraphicsBeginImageContextWithOptions(CGSizeMake(100,100), NO, 0);
+// 获取图片上下文
+CGContextRef con = UIGraphicsGetCurrentContext();
+// 绘制
+CGContextAddEllipseInRect(con, CGRectMake(0,0,100,100));
+CGContextSetFillColorWithColor(con, [UIColor blueColor].CGColor);
+CGContextFillPath(con);
+// 生成图片
+UIImage* im = UIGraphicsGetImageFromCurrentImageContext();
+// 结束图片上下文
+UIGraphicsEndImageContext();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
                 
             </div>
             <hr/>
@@ -693,7 +980,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2021/05/25/android-fragment-duo-chang-jing-xia-lan-jia-zai-shi-xian/">http://example.com/2021/05/25/android-fragment-duo-chang-jing-xia-lan-jia-zai-shi-xian/</a>
+                    <a href="http://example.com/2021/06/07/ios-kai-fa-zi-ding-yi-view-ji-chu-hui-tu-fang-fa-c-yu-yan-core-graphics-shi-xian-pian/">http://example.com/2021/06/07/ios-kai-fa-zi-ding-yi-view-ji-chu-hui-tu-fang-fa-c-yu-yan-core-graphics-shi-xian-pian/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -731,16 +1018,16 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Android/">
-                                    <span class="chip bg-color">Android</span>
-                                </a>
-                            
-                                <a href="/tags/Fragment/">
-                                    <span class="chip bg-color">Fragment</span>
-                                </a>
-                            
                                 <a href="/tags/%E5%8E%9F%E5%88%9B/">
                                     <span class="chip bg-color">原创</span>
+                                </a>
+                            
+                                <a href="/tags/iOS/">
+                                    <span class="chip bg-color">iOS</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%BB%98%E5%88%B6/">
+                                    <span class="chip bg-color">绘制</span>
                                 </a>
                             
                         </div>
@@ -917,23 +1204,23 @@
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/2021/05/25/android-fragment-duo-chang-jing-xia-lan-jia-zai-shi-xian/">
+                <a href="/2021/06/07/ios-kai-fa-zi-ding-yi-view-ji-chu-hui-tu-fang-fa-c-yu-yan-core-graphics-shi-xian-pian/">
                     <div class="card-image">
                         
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMgoT21YfmVZD9Wxk0YmW3v7hbOT5FeB72Zw&usqp=CAU" class="responsive-img" alt="Android Fragment多场景下懒加载实现">
+                        <img src="https://www.v1tx.com/wp-content/uploads/2020/03/20200328085647055-1024x697.jpg" class="responsive-img" alt="iOS开发：自定义View基础绘图方法（C语言Core Graphics实现篇）">
                         
-                        <span class="card-title">Android Fragment多场景下懒加载实现</span>
+                        <span class="card-title">iOS开发：自定义View基础绘图方法（C语言Core Graphics实现篇）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            在Add+Show+Hide、ViewPager、ViewPager2、TabLayout等多种使用Fragment的场景下验证和实现页面数据懒加载功能
+                            在iOS开发中，使用Core Graphics API提供的基本绘图方式自定义UIView，实现复杂的绘图逻辑。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-25
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-07
                             </span>
                         <span class="publish-author">
                             
@@ -943,8 +1230,8 @@
                                     知识点
                                 </a>
                             
-                            <a href="/categories/%E7%9F%A5%E8%AF%86%E7%82%B9/Android/" class="post-category">
-                                    Android
+                            <a href="/categories/%E7%9F%A5%E8%AF%86%E7%82%B9/iOS/" class="post-category">
+                                    iOS
                                 </a>
                             
                             
@@ -955,16 +1242,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Android/">
-                        <span class="chip bg-color">Android</span>
-                    </a>
-                    
-                    <a href="/tags/Fragment/">
-                        <span class="chip bg-color">Fragment</span>
-                    </a>
-                    
                     <a href="/tags/%E5%8E%9F%E5%88%9B/">
                         <span class="chip bg-color">原创</span>
+                    </a>
+                    
+                    <a href="/tags/iOS/">
+                        <span class="chip bg-color">iOS</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%BB%98%E5%88%B6/">
+                        <span class="chip bg-color">绘制</span>
                     </a>
                     
                 </div>
@@ -975,26 +1262,27 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/05/25/android-fragment-duo-chang-jing-xia-lan-jia-zai-shi-xian/">
+                <a href="/2021/06/07/ios-kai-fa-zi-ding-yi-view-ji-chu-hui-tu-fang-fa-oc-yu-yan-uikit-shi-xian-pian/">
                     <div class="card-image">
                         
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMgoT21YfmVZD9Wxk0YmW3v7hbOT5FeB72Zw&usqp=CAU" class="responsive-img" alt="Android Fragment多场景下懒加载实现">
                         
-                        <span class="card-title">Android Fragment多场景下懒加载实现</span>
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="iOS开发：自定义View基础绘图方法（OC语言UIKit实现篇）">
+                        
+                        <span class="card-title">iOS开发：自定义View基础绘图方法（OC语言UIKit实现篇）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            在Add+Show+Hide、ViewPager、ViewPager2、TabLayout等多种使用Fragment的场景下验证和实现页面数据懒加载功能
+                            在iOS开发中，使用UIKit API提供的基本绘图方式自定义UIView，实现复杂的绘图逻辑。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-25
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-07
                             </span>
                         <span class="publish-author">
                             
@@ -1004,28 +1292,27 @@
                                     知识点
                                 </a>
                             
-                            <a href="/categories/%E7%9F%A5%E8%AF%86%E7%82%B9/Android/" class="post-category">
-                                    Android
+                            <a href="/categories/%E7%9F%A5%E8%AF%86%E7%82%B9/iOS/" class="post-category">
+                                    iOS
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Android/">
-                        <span class="chip bg-color">Android</span>
-                    </a>
-                    
-                    <a href="/tags/Fragment/">
-                        <span class="chip bg-color">Fragment</span>
-                    </a>
-                    
                     <a href="/tags/%E5%8E%9F%E5%88%9B/">
                         <span class="chip bg-color">原创</span>
+                    </a>
+                    
+                    <a href="/tags/iOS/">
+                        <span class="chip bg-color">iOS</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%BB%98%E5%88%B6/">
+                        <span class="chip bg-color">绘制</span>
                     </a>
                     
                 </div>
