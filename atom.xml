@@ -3,23 +3,54 @@
   <title>COLORFUL</title>
   
   <subtitle>愿你归来仍是少年</subtitle>
-  <link href="http://example.com/atom.xml" rel="self"/>
+  <link href="https://51itcolorful.com/atom.xml" rel="self"/>
   
-  <link href="http://example.com/"/>
-  <updated>2021-06-07T09:51:07.162Z</updated>
-  <id>http://example.com/</id>
+  <link href="https://51itcolorful.com/"/>
+  <updated>2021-06-08T08:46:21.516Z</updated>
+  <id>https://51itcolorful.com/</id>
   
   <author>
-    <name>Wei Chen</name>
+    <name>51itcolorful</name>
     
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Xcode11新变化：SceneDelegate</title>
+    <link href="https://51itcolorful.com/2021/06/08/xcode11-xin-bian-hua-scenedelegate/"/>
+    <id>https://51itcolorful.com/2021/06/08/xcode11-xin-bian-hua-scenedelegate/</id>
+    <published>2021-06-08T08:46:21.000Z</published>
+    <updated>2021-06-08T08:46:21.516Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;前几天更新好Xcode11后，运行旧项目，相安无事，心里捏了一把汗，终于没有跟往年那样一更新就给你一大堆报错了。刚才突发奇想，使用Xcode11新建iOS项目时,如果你跟往常一样在&lt;code&gt;Appdelegate&lt;/code&gt;的&lt;code&gt;-</summary>
+        
+      
+    
+    
+    
+    <category term="知识点" scheme="https://51itcolorful.com/categories/%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
+    
+    <category term="iOS" scheme="https://51itcolorful.com/categories/%E7%9F%A5%E8%AF%86%E7%82%B9/iOS/"/>
+    
+    
+    <category term="iOS" scheme="https://51itcolorful.com/tags/iOS/"/>
+    
+    <category term="Xcode" scheme="https://51itcolorful.com/tags/Xcode/"/>
+    
+    <category term="SceneDelegate" scheme="https://51itcolorful.com/tags/SceneDelegate/"/>
+    
+  </entry>
+  
+  <entry>
     <title>iOS开发：自定义View基础绘图方法（C语言Core Graphics实现篇）</title>
-    <link href="http://example.com/2021/06/07/ios-kai-fa-zi-ding-yi-view-ji-chu-hui-tu-fang-fa-c-yu-yan-core-graphics-shi-xian-pian/"/>
-    <id>http://example.com/2021/06/07/ios-kai-fa-zi-ding-yi-view-ji-chu-hui-tu-fang-fa-c-yu-yan-core-graphics-shi-xian-pian/</id>
+    <link href="https://51itcolorful.com/2021/06/07/ios-kai-fa-zi-ding-yi-view-ji-chu-hui-tu-fang-fa-c-yu-yan-core-graphics-shi-xian-pian/"/>
+    <id>https://51itcolorful.com/2021/06/07/ios-kai-fa-zi-ding-yi-view-ji-chu-hui-tu-fang-fa-c-yu-yan-core-graphics-shi-xian-pian/</id>
     <published>2021-06-07T09:42:25.000Z</published>
     <updated>2021-06-07T09:51:07.162Z</updated>
     
@@ -34,23 +65,23 @@
     
     
     
-    <category term="知识点" scheme="http://example.com/categories/%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
+    <category term="知识点" scheme="https://51itcolorful.com/categories/%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
     
-    <category term="iOS" scheme="http://example.com/categories/%E7%9F%A5%E8%AF%86%E7%82%B9/iOS/"/>
+    <category term="iOS" scheme="https://51itcolorful.com/categories/%E7%9F%A5%E8%AF%86%E7%82%B9/iOS/"/>
     
     
-    <category term="原创" scheme="http://example.com/tags/%E5%8E%9F%E5%88%9B/"/>
+    <category term="原创" scheme="https://51itcolorful.com/tags/%E5%8E%9F%E5%88%9B/"/>
     
-    <category term="iOS" scheme="http://example.com/tags/iOS/"/>
+    <category term="iOS" scheme="https://51itcolorful.com/tags/iOS/"/>
     
-    <category term="绘制" scheme="http://example.com/tags/%E7%BB%98%E5%88%B6/"/>
+    <category term="绘制" scheme="https://51itcolorful.com/tags/%E7%BB%98%E5%88%B6/"/>
     
   </entry>
   
   <entry>
     <title>iOS开发：自定义View基础绘图方法（OC语言UIKit实现篇）</title>
-    <link href="http://example.com/2021/06/07/ios-kai-fa-zi-ding-yi-view-ji-chu-hui-tu-fang-fa-oc-yu-yan-uikit-shi-xian-pian/"/>
-    <id>http://example.com/2021/06/07/ios-kai-fa-zi-ding-yi-view-ji-chu-hui-tu-fang-fa-oc-yu-yan-uikit-shi-xian-pian/</id>
+    <link href="https://51itcolorful.com/2021/06/07/ios-kai-fa-zi-ding-yi-view-ji-chu-hui-tu-fang-fa-oc-yu-yan-uikit-shi-xian-pian/"/>
+    <id>https://51itcolorful.com/2021/06/07/ios-kai-fa-zi-ding-yi-view-ji-chu-hui-tu-fang-fa-oc-yu-yan-uikit-shi-xian-pian/</id>
     <published>2021-06-07T09:39:23.000Z</published>
     <updated>2021-06-07T09:39:23.436Z</updated>
     
@@ -65,16 +96,16 @@
     
     
     
-    <category term="知识点" scheme="http://example.com/categories/%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
+    <category term="知识点" scheme="https://51itcolorful.com/categories/%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
     
-    <category term="iOS" scheme="http://example.com/categories/%E7%9F%A5%E8%AF%86%E7%82%B9/iOS/"/>
+    <category term="iOS" scheme="https://51itcolorful.com/categories/%E7%9F%A5%E8%AF%86%E7%82%B9/iOS/"/>
     
     
-    <category term="原创" scheme="http://example.com/tags/%E5%8E%9F%E5%88%9B/"/>
+    <category term="原创" scheme="https://51itcolorful.com/tags/%E5%8E%9F%E5%88%9B/"/>
     
-    <category term="iOS" scheme="http://example.com/tags/iOS/"/>
+    <category term="iOS" scheme="https://51itcolorful.com/tags/iOS/"/>
     
-    <category term="绘制" scheme="http://example.com/tags/%E7%BB%98%E5%88%B6/"/>
+    <category term="绘制" scheme="https://51itcolorful.com/tags/%E7%BB%98%E5%88%B6/"/>
     
   </entry>
   

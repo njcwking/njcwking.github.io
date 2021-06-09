@@ -1186,6 +1186,12 @@ article .article-tags .chip {
     text-align: center;
 }
 
+#articleContent .img-item-inline {
+    text-align: center;
+    display: inline-block;
+    margin-left: 10px;
+}
+
 #articleContent img {
     max-width: 100%;
     height: auto;

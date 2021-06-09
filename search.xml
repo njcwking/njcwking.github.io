@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>Xcode11新变化：SceneDelegate</title>
+      <link href="2021/06/08/xcode11-xin-bian-hua-scenedelegate/"/>
+      <url>2021/06/08/xcode11-xin-bian-hua-scenedelegate/</url>
+      
+        <content type="html"><![CDATA[<p>前几天更新好Xcode11后，运行旧项目，相安无事，心里捏了一把汗，终于没有跟往年那样一更新就给你一大堆报错了。刚才突发奇想，使用Xcode11新建iOS项目时,如果你跟往常一样在<code>Appdelegate</code>的<code>- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions</code>方法中创建根控制器，会崩溃报错：</p><p><img src="http://njcwking.oss-cn-hangzhou.aliyuncs.com/uPic/1623105942381-5a56030c-ef5f-49a3-a2cc-2ffd1bd33f31.png" alt="崩溃"></p><p><code>Appdelegate</code>找不到设置window的方法。</p><p>然后发现Xcode自动新增了一个<code>SceneDelegate</code>文件，查找了一下官方文档<a href="https://links.jianshu.com/go?to=https://developer.apple.com/videos/play/wwdc2019/423/">WWDC2019：Optimizing App Launch</a></p><p>发现，iOS13中appdelegate的职责发现了改变：</p><p>iOS13之前，Appdelegate的职责全权处理App生命周期和UI生命周期；</p><p>iOS13之后，Appdelegate的职责是：</p><p>1、处理 App 生命周期</p><p>2、新的 Scene Session 生命周期</p><p>那UI的生命周期呢？交给新增的Scene Delegate处理</p><p>用图表示就是：</p><p>iOS13之前：</p><p><img src="http://njcwking.oss-cn-hangzhou.aliyuncs.com/uPic/1623105986947-f09ff842-1078-4bd4-a8fa-4d6159dfa667.png" alt="iOS13之前AppDelegate职责"></p><p>这种模式完全没问题，因为只有一个进程，只有一个与这个进程对应的用户界面</p><p>但是iOS13之后，<code>Appdelegate</code>不在负责UI生命周期，所有UI生命周期交给<code>SceneDelegate</code>处理：</p><p><img src="http://njcwking.oss-cn-hangzhou.aliyuncs.com/uPic/1623106063996-03f0dded-c0f6-44dd-8cdd-c6c3f9925d26.png" alt="iOS13之后AppDelegate职责"></p><p><img src="http://njcwking.oss-cn-hangzhou.aliyuncs.com/uPic/1623106081257-e800048a-96ac-4ab6-b088-f7d97ea68ef7.png" alt="iOS13之生SceneDelegate职责"></p><p>因此初始化window方法需要改变：</p><p>现在不再<code>Appdelegate</code>的<code>- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions</code>进行初始化，转交给<code>SceneDelegate</code>的<code>willConnectToSession:</code>方法进行根控制器设置：</p><pre class="line-numbers language-none"><code class="language-none">- (void)scene:(UIScene *)scene willConnectToSession:(UISceneSession *)session options:(UISceneConnectionOptions *)connectionOptions {    UIWindowScene *windowScene = (UIWindowScene *)scene;    self.window = [[UIWindow alloc] initWithWindowScene:windowScene];    self.window.frame = windowScene.coordinateSpace.bounds;    self.window.rootViewController = [UITabBarController new];    [self.window makeKeyAndVisible];}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>若是想使用iOS13之前的方式，通过 <code>AppDelegate</code>来管理生命周期，可通过以下几个步骤进行还原：</p><p>1、 删除 <code>SceneDelegate</code> 的”.h”和”.m”文件；</p><p>2、 删除 <code>Info.plist</code> 文件中的 <code>Application Scene Manifest</code> 配置；</p><p>3、 删除 <code>AppDelegate.m</code> 文件中的两个管理SceneDelegate生命周期的代理方法；</p><pre class="line-numbers language-none"><code class="language-none">#pragma mark - UISceneSession lifecycle- (UISceneConfiguration *)application:(UIApplication *)application configurationForConnectingSceneSession:(UISceneSession *)connectingSceneSession options:(UISceneConnectionOptions *)options {    // Called when a new scene session is being created.    // Use this method to select a configuration to create the new scene with.    return [[UISceneConfiguration alloc] initWithName:@"Default Configuration" sessionRole:connectingSceneSession.role];}- (void)application:(UIApplication *)application didDiscardSceneSessions:(NSSet&lt;UISceneSession *&gt; *)sceneSessions {    // Called when the user discards a scene session.    // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.    // Use this method to release any resources that were specific to the discarded scenes, as they will not return.}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>4、  在 <code>AppDelegate.h</code> 中，添加window属性。</p><pre class="line-numbers language-none"><code class="language-none">@property(strong, nonatomic) UIWindow *window;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 知识点 </category>
+          
+          <category> iOS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> iOS </tag>
+            
+            <tag> Xcode </tag>
+            
+            <tag> SceneDelegate </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>iOS开发：自定义View基础绘图方法（C语言Core Graphics实现篇）</title>
       <link href="2021/06/07/ios-kai-fa-zi-ding-yi-view-ji-chu-hui-tu-fang-fa-c-yu-yan-core-graphics-shi-xian-pian/"/>
       <url>2021/06/07/ios-kai-fa-zi-ding-yi-view-ji-chu-hui-tu-fang-fa-c-yu-yan-core-graphics-shi-xian-pian/</url>

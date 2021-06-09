@@ -74,7 +74,13 @@ $(function () {
 
         $('#articleContent img').each(function () {
             let imgPath = $(this).attr('src');
-            $(this).wrap('<div class="img-item" data-src="' + imgPath + '" data-sub-html=".caption"></div>');
+            let zoom = $(this).attr('inline');
+            if (zoom !== undefined) {
+                $(this).wrap('<div class="img-item-inline" data-src="' + imgPath + '" data-sub-html=".caption"></div>');
+            }
+            else{
+                $(this).wrap('<div class="img-item" data-src="' + imgPath + '" data-sub-html=".caption"></div>');
+            }
             // 图片添加阴影
             $(this).addClass("img-shadow img-margin");
             // 图片添加字幕
@@ -101,7 +107,7 @@ $(function () {
             }
         });
         $('#articleContent, #myGallery').lightGallery({
-            selector: '.img-item',
+            selector: '.img-item,.img-item-inline',
             // 启用字幕
             subHtmlSelectorRelative: true
         });
