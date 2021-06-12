@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="分类: 技术知识, COLORFUL">
+    <meta name="keywords" content="CSS,box-shadow,阴影,前端">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>分类: 技术知识 | COLORFUL</title>
+    <title>CSS box-shadow阴影效果 | COLORFUL</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -491,461 +491,721 @@
 
 </header>
 
-    <div class="bg-cover pd-header about-cover">
-    <div class="container">
-    <div class="row">
-    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-        <div class="brand">
-            <div class="title center-align">
-                
-                你学（fèi）会了吗？
-                
-            </div>
+    
 
-            <div class="description center-align">
-                
-                <span id="subtitle"></span>
-                <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
-                <script>
-                    var typed = new Typed("#subtitle", {
-                        strings: [ 
-                            
-                                "从来没有真正的绝境, 只有心灵的迷途",
-                            
-                                "Never really desperate, only the lost of the soul",
-                            
-                        ],
-                        startDelay: 300,
-                        typeSpeed: 100,
-                        loop: true,
-                        backSpeed: 50,
-                        showCursor: true
-                    });
-                </script>
-                
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">CSS box-shadow阴影效果</h1>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/CSS/">
+                                <span class="chip bg-color">CSS</span>
+                            </a>
+                        
+                            <a href="/tags/box-shadow/">
+                                <span class="chip bg-color">box-shadow</span>
+                            </a>
+                        
+                            <a href="/tags/%E9%98%B4%E5%BD%B1/">
+                                <span class="chip bg-color">阴影</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%8A%80%E6%9C%AF%E7%9F%A5%E8%AF%86/" class="post-category">
+                                技术知识
+                            </a>
+                        
+                            <a href="/categories/%E6%8A%80%E6%9C%AF%E7%9F%A5%E8%AF%86/CSS/" class="post-category">
+                                CSS
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-06-10
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    565
+                </div>
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>CSS3 box-shadow 属性用来描述一个元素的一个或多个阴影效果，该属性几乎可以让你完成你想要的任何阴影效果。然而 box-shadow 属性语法和取值非常灵活，对于新手有点不容易理解。今天总结一下语法和 box-shadow 属性各种阴影效果。</p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><p>CSS 代码:</p>
+<pre class="line-numbers language-CSS" data-language="CSS"><code class="language-CSS">/* offset-x | offset-y | color */
+box-shadow: 60px -16px teal; 
+/* offset-x | offset-y | blur-radius | color */
+box-shadow: 10px 5px 5px black; 
+/* offset-x | offset-y | blur-radius | spread-radius | color */
+box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2); 
+/* inset | offset-x | offset-y | color */
+box-shadow: inset 5em 1em gold; 
+/* Any number of shadows, separated by commas */
+box-shadow: 3px 3px red, -1em 0 0.4em olive; 
+/* Global keywords */
+box-shadow: inherit;box-shadow: initial;box-shadow: unset;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>取值说明：</p>
+<ul>
+<li><code>inset</code>: 默认阴影在边框外。使用 inset 后，阴影在边框内（即使是透明边框），背景之上内容之下。也有些人喜欢把这个值放在最后，浏览器也支持。</li>
+<li><code>&lt;offset-x&gt; &lt;offset-y&gt;</code>: 这是头两个 <code>&lt;length&gt;</code>值，用来设置阴影偏移量。<code>&lt;offset-x&gt;</code> 设置水平偏移量，如果是负值则阴影位于元素左边。 <code>&lt;offset-y&gt;</code> 设置垂直偏移量，如果是负值则阴影位于元素上面。可用单位请查看 <code>&lt;length&gt;</code>。如果两者都是0，那么阴影位于元素后面。这时如果设置了 <code>&lt;blur-radius&gt;</code> 或 <code>&lt;spread-radius&gt;</code> 则有模糊效果。</li>
+<li><code>&lt;blur-radius&gt;</code>: 这是第三个 <code>&lt;length&gt;</code> 值。值越大，模糊面积越大，阴影就越大越淡。 不能为负值。默认为0，此时阴影边缘锐利。</li>
+<li><code>&lt;spread-radius&gt;</code> : 这是第四个 <code>&lt;length&gt;</code> 值。取正值时，阴影扩大；取负值时，阴影收缩。默认为0，此时阴影与元素同样大。</li>
+<li><code>&lt;color&gt;</code> : 相关事项查看 <code>&lt;color&gt;</code> 。如果没有指定，则由浏览器决定——通常是color的值，不过目前Safari取透明。</li>
+</ul>
+<p>网上找了几张图，大家可以对应的看一下，更加好理解。</p>
+<p><img src="http://njcwking.oss-cn-hangzhou.aliyuncs.com/uPic/syntax-1.png" alt="CSS3 box-shadow 属性"><br><img src="http://njcwking.oss-cn-hangzhou.aliyuncs.com/uPic/syntax-2.png" alt="CSS3 box-shadow 属性"><br><img src="http://njcwking.oss-cn-hangzhou.aliyuncs.com/uPic/syntax-3.png" alt="CSS3 box-shadow 属性"></p>
+<p>再说的具体一点：</p>
+<p>CSS 代码:</p>
+<pre class="line-numbers language-CSS" data-language="CSS"><code class="language-CSS">div {
+  width: 150px;
+  height: 150px;
+  background-color: #fff;
+  box-shadow: 120px 80px 40px 20px #0ff;
+  /* 顺序为: offset-x, offset-y, blur-size, spread-size, color */
+  /* blur-size 和 spread-size 是可选的 (默认为 0) */
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>来个图解：</p>
+<p><img src="http://njcwking.oss-cn-hangzhou.aliyuncs.com/uPic/box-shadow-diagram.png" alt="CSS3 box-shadow 属性图解"></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">51itcolorful</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://51itcolorful.com/2021/06/10/css-box-shadow-yin-ying-xiao-guo/">https://51itcolorful.com/2021/06/10/css-box-shadow-yin-ying-xiao-guo/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">51itcolorful</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/CSS/">
+                                    <span class="chip bg-color">CSS</span>
+                                </a>
+                            
+                                <a href="/tags/box-shadow/">
+                                    <span class="chip bg-color">box-shadow</span>
+                                </a>
+                            
+                                <a href="/tags/%E9%98%B4%E5%BD%B1/">
+                                    <span class="chip bg-color">阴影</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script>
-    // 每天切换 banner 图.  Switch banner image every day.
-    var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
-    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
+    $(function () {
+        $('.tabs').tabs();
+    });
 </script>
 
-
+            
+        </div>
     </div>
-</div>
-
-<main class="content">
 
     
 
-<div id="category-cloud" class="container chip-container">
-    <div class="card">
-        <div class="card-content">
-            <div class="tag-title center-align">
-                <i class="fas fa-bookmark"></i>&nbsp;&nbsp;文章分类
-            </div>
-            <div class="tag-chips">
-                
-                
-                
-                <a href="/categories/%E6%8A%80%E6%9C%AF%E7%9F%A5%E8%AF%86/" title="技术知识: 6">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-active "
-                            style="background-color: #F9EBEA;">技术知识
-                        <span class="tag-length">6</span>
-                    </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2021/06/10/css-bu-gui-ze-yin-ying-shi-xian/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="CSS不规则阴影实现">
+                        
+                        <span class="card-title">CSS不规则阴影实现</span>
+                    </div>
                 </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-10
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF%E7%9F%A5%E8%AF%86/" class="post-category">
+                                    技术知识
+                                </a>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF%E7%9F%A5%E8%AF%86/CSS/" class="post-category">
+                                    CSS
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
                 
-                
-                <a href="/categories/%E6%8A%80%E6%9C%AF%E7%9F%A5%E8%AF%86/iOS/" title="iOS: 3">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #F5EEF8;">iOS
-                        <span class="tag-length">3</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/%E6%8A%80%E6%9C%AF%E7%9F%A5%E8%AF%86/CSS/" title="CSS: 3">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #D5F5E3;">CSS
-                        <span class="tag-length">3</span>
-                    </span>
-                </a>
-                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/CSS/">
+                        <span class="chip bg-color">CSS</span>
+                    </a>
+                    
+                    <a href="/tags/box-shadow/">
+                        <span class="chip bg-color">box-shadow</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%98%B4%E5%BD%B1/">
+                        <span class="chip bg-color">阴影</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
-    </div>
-</div>
-
-
-    
-
-    <article id="articles" class="container articles">
-        <div class="row tags-posts">
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2021/06/12/css-9-ge-jing-mei-de-wen-zhang-biao-ti-yang-shi/">
-                        <div class="card-image tag-image">
-                            
-                            <img src="http://njcwking.oss-cn-hangzhou.aliyuncs.com/uPic/%E6%9C%AA%E6%A0%87%E9%A2%98-1-20210612112508.jpg" class="responsive-img" alt="CSS:9个精美的文章标题样式">
-                            
-                            <span class="card-title">CSS:9个精美的文章标题样式</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                使用纯CSS样式实现多种精美标题样式
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-12
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%8A%80%E6%9C%AF%E7%9F%A5%E8%AF%86/" class="post-category">
-                                    技术知识
-                                </a>
-                                
-                                <a href="/categories/%E6%8A%80%E6%9C%AF%E7%9F%A5%E8%AF%86/CSS/" class="post-category">
-                                    CSS
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E5%8E%9F%E5%88%9B/">
-                            <span class="chip bg-color">原创</span>
-                        </a>
-                        
-                        <a href="/tags/CSS/">
-                            <span class="chip bg-color">CSS</span>
-                        </a>
-                        
-                        <a href="/tags/%E6%A0%87%E9%A2%98%E6%A0%B7%E5%BC%8F/">
-                            <span class="chip bg-color">标题样式</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2021/06/10/css-bu-gui-ze-yin-ying-shi-xian/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="CSS不规则阴影实现">
-                            
-                            <span class="card-title">CSS不规则阴影实现</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-错误方案-利用box-shadow在面对规则的矩形或者圆形，用box-shadow生成的投影可以说堪称完美。但是面对不规则图形，再用box-shadow生成的投影就有点力不从心了。
-比如：
-
-
-可以看出，这时数字黑色圆角矩形的投影打到了
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-10
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%8A%80%E6%9C%AF%E7%9F%A5%E8%AF%86/" class="post-category">
-                                    技术知识
-                                </a>
-                                
-                                <a href="/categories/%E6%8A%80%E6%9C%AF%E7%9F%A5%E8%AF%86/CSS/" class="post-category">
-                                    CSS
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
+            <div class="card">
+                <a href="/2021/06/08/xcode11-xin-bian-hua-scenedelegate/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Xcode11新变化：SceneDelegate">
+                        
+                        <span class="card-title">Xcode11新变化：SceneDelegate</span>
                     </div>
-
-                    
-                    <div class="card-action article-tags">
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
                         
-                        <a href="/tags/CSS/">
-                            <span class="chip bg-color">CSS</span>
-                        </a>
-                        
-                        <a href="/tags/box-shadow/">
-                            <span class="chip bg-color">box-shadow</span>
-                        </a>
-                        
-                        <a href="/tags/%E9%98%B4%E5%BD%B1/">
-                            <span class="chip bg-color">阴影</span>
-                        </a>
+                            
                         
                     </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2021/06/10/css-box-shadow-yin-ying-xiao-guo/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="CSS box-shadow阴影效果">
-                            
-                            <span class="card-title">CSS box-shadow阴影效果</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                CSS3 box-shadow 属性用来描述一个元素的一个或多个阴影效果，该属性几乎可以让你完成你想要的任何阴影效果。然而 box-shadow 属性语法和取值非常灵活，对于新手有点不容易理解。今天总结一下语法和 box-shadow 属性
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-10
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%8A%80%E6%9C%AF%E7%9F%A5%E8%AF%86/" class="post-category">
-                                    技术知识
-                                </a>
-                                
-                                <a href="/categories/%E6%8A%80%E6%9C%AF%E7%9F%A5%E8%AF%86/CSS/" class="post-category">
-                                    CSS
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/CSS/">
-                            <span class="chip bg-color">CSS</span>
-                        </a>
-                        
-                        <a href="/tags/box-shadow/">
-                            <span class="chip bg-color">box-shadow</span>
-                        </a>
-                        
-                        <a href="/tags/%E9%98%B4%E5%BD%B1/">
-                            <span class="chip bg-color">阴影</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2021/06/08/xcode11-xin-bian-hua-scenedelegate/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Xcode11新变化：SceneDelegate">
-                            
-                            <span class="card-title">Xcode11新变化：SceneDelegate</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                前几天更新好Xcode11后，运行旧项目，相安无事，心里捏了一把汗，终于没有跟往年那样一更新就给你一大堆报错了。刚才突发奇想，使用Xcode11新建iOS项目时,如果你跟往常一样在Appdelegate的- (BOOL)applicatio
-                            
-                        </div>
-                        <div class="publish-info">
+                    <div class="publish-info">
                             <span class="publish-date">
                                 <i class="far fa-clock fa-fw icon-date"></i>2021-06-08
                             </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%8A%80%E6%9C%AF%E7%9F%A5%E8%AF%86/" class="post-category">
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF%E7%9F%A5%E8%AF%86/" class="post-category">
                                     技术知识
                                 </a>
-                                
-                                <a href="/categories/%E6%8A%80%E6%9C%AF%E7%9F%A5%E8%AF%86/iOS/" class="post-category">
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF%E7%9F%A5%E8%AF%86/iOS/" class="post-category">
                                     iOS
                                 </a>
-                                
-                                
-                            </span>
-                        </div>
+                            
+                            
+                        </span>
                     </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/iOS/">
-                            <span class="chip bg-color">iOS</span>
-                        </a>
-                        
-                        <a href="/tags/Xcode/">
-                            <span class="chip bg-color">Xcode</span>
-                        </a>
-                        
-                        <a href="/tags/SceneDelegate/">
-                            <span class="chip bg-color">SceneDelegate</span>
-                        </a>
-                        
-                    </div>
-                    
                 </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2021/06/07/ios-kai-fa-zi-ding-yi-view-ji-chu-hui-tu-fang-fa-c-yu-yan-core-graphics-shi-xian-pian/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="iOS开发：自定义View基础绘图方法（C语言Core Graphics实现篇）">
-                            
-                            <span class="card-title">iOS开发：自定义View基础绘图方法（C语言Core Graphics实现篇）</span>
-                        </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/iOS/">
+                        <span class="chip bg-color">iOS</span>
                     </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                在iOS开发中，使用Core Graphics API提供的基本绘图方式自定义UIView，实现复杂的绘图逻辑。
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-07
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%8A%80%E6%9C%AF%E7%9F%A5%E8%AF%86/" class="post-category">
-                                    技术知识
-                                </a>
-                                
-                                <a href="/categories/%E6%8A%80%E6%9C%AF%E7%9F%A5%E8%AF%86/iOS/" class="post-category">
-                                    iOS
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
                     
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E5%8E%9F%E5%88%9B/">
-                            <span class="chip bg-color">原创</span>
-                        </a>
-                        
-                        <a href="/tags/iOS/">
-                            <span class="chip bg-color">iOS</span>
-                        </a>
-                        
-                        <a href="/tags/%E7%BB%98%E5%88%B6/">
-                            <span class="chip bg-color">绘制</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2021/06/07/ios-kai-fa-zi-ding-yi-view-ji-chu-hui-tu-fang-fa-oc-yu-yan-uikit-shi-xian-pian/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="iOS开发：自定义View基础绘图方法（OC语言UIKit实现篇）">
-                            
-                            <span class="card-title">iOS开发：自定义View基础绘图方法（OC语言UIKit实现篇）</span>
-                        </div>
+                    <a href="/tags/Xcode/">
+                        <span class="chip bg-color">Xcode</span>
                     </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                在iOS开发中，使用UIKit API提供的基本绘图方式自定义UIView，实现复杂的绘图逻辑。
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-07
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%8A%80%E6%9C%AF%E7%9F%A5%E8%AF%86/" class="post-category">
-                                    技术知识
-                                </a>
-                                
-                                <a href="/categories/%E6%8A%80%E6%9C%AF%E7%9F%A5%E8%AF%86/iOS/" class="post-category">
-                                    iOS
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
                     
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E5%8E%9F%E5%88%9B/">
-                            <span class="chip bg-color">原创</span>
-                        </a>
-                        
-                        <a href="/tags/iOS/">
-                            <span class="chip bg-color">iOS</span>
-                        </a>
-                        
-                        <a href="/tags/%E7%BB%98%E5%88%B6/">
-                            <span class="chip bg-color">绘制</span>
-                        </a>
-                        
-                    </div>
+                    <a href="/tags/SceneDelegate/">
+                        <span class="chip bg-color">SceneDelegate</span>
+                    </a>
                     
                 </div>
+                
             </div>
-            
         </div>
-    </article>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
 </main>
 
 

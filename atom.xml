@@ -6,7 +6,7 @@
   <link href="https://51itcolorful.com/atom.xml" rel="self"/>
   
   <link href="https://51itcolorful.com/"/>
-  <updated>2021-06-09T02:35:32.446Z</updated>
+  <updated>2021-06-12T03:29:11.693Z</updated>
   <id>https://51itcolorful.com/</id>
   
   <author>
@@ -15,6 +15,103 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CSS:9个精美的文章标题样式</title>
+    <link href="https://51itcolorful.com/2021/06/12/css-9-ge-jing-mei-de-wen-zhang-biao-ti-yang-shi/"/>
+    <id>https://51itcolorful.com/2021/06/12/css-9-ge-jing-mei-de-wen-zhang-biao-ti-yang-shi/</id>
+    <published>2021-06-12T03:29:11.000Z</published>
+    <updated>2021-06-12T03:29:11.693Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;http://njcwking.oss-cn-hangzhou.aliyuncs.com/uPic/%E6%9C%AA%E6%A0%87%E9%A2%98-1-20210612112508.jpg&quot; alt=&quot;标题样式清单&quot;&gt;&lt;/p&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="技术知识" scheme="https://51itcolorful.com/categories/%E6%8A%80%E6%9C%AF%E7%9F%A5%E8%AF%86/"/>
+    
+    <category term="CSS" scheme="https://51itcolorful.com/categories/%E6%8A%80%E6%9C%AF%E7%9F%A5%E8%AF%86/CSS/"/>
+    
+    
+    <category term="原创" scheme="https://51itcolorful.com/tags/%E5%8E%9F%E5%88%9B/"/>
+    
+    <category term="CSS" scheme="https://51itcolorful.com/tags/CSS/"/>
+    
+    <category term="标题样式" scheme="https://51itcolorful.com/tags/%E6%A0%87%E9%A2%98%E6%A0%B7%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CSS不规则阴影实现</title>
+    <link href="https://51itcolorful.com/2021/06/10/css-bu-gui-ze-yin-ying-shi-xian/"/>
+    <id>https://51itcolorful.com/2021/06/10/css-bu-gui-ze-yin-ying-shi-xian/</id>
+    <published>2021-06-10T08:10:38.000Z</published>
+    <updated>2021-06-10T08:10:38.573Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;img src=&quot;http://njcwking.oss-cn-hangzhou.aliyuncs.com/uPic/image-20210610154714696-20210610155113.png&quot; alt=&quot;阴影效果&quot; style=&quot;zoom:50%;&quot;&gt;
+
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="技术知识" scheme="https://51itcolorful.com/categories/%E6%8A%80%E6%9C%AF%E7%9F%A5%E8%AF%86/"/>
+    
+    <category term="CSS" scheme="https://51itcolorful.com/categories/%E6%8A%80%E6%9C%AF%E7%9F%A5%E8%AF%86/CSS/"/>
+    
+    
+    <category term="CSS" scheme="https://51itcolorful.com/tags/CSS/"/>
+    
+    <category term="box-shadow" scheme="https://51itcolorful.com/tags/box-shadow/"/>
+    
+    <category term="阴影" scheme="https://51itcolorful.com/tags/%E9%98%B4%E5%BD%B1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CSS box-shadow阴影效果</title>
+    <link href="https://51itcolorful.com/2021/06/10/css-box-shadow-yin-ying-xiao-guo/"/>
+    <id>https://51itcolorful.com/2021/06/10/css-box-shadow-yin-ying-xiao-guo/</id>
+    <published>2021-06-10T07:39:58.000Z</published>
+    <updated>2021-06-10T07:41:13.747Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;CSS3 box-shadow 属性用来描述一个元素的一个或多个阴影效果，该属性几乎可以让你完成你想要的任何阴影效果。然而 box-shadow 属性语法和取值非常灵活，对于新手有点不容易理解。今天总结一下语法和 box-shadow 属性各种阴影效果。&lt;/p&gt;
+&lt;h3</summary>
+        
+      
+    
+    
+    
+    <category term="技术知识" scheme="https://51itcolorful.com/categories/%E6%8A%80%E6%9C%AF%E7%9F%A5%E8%AF%86/"/>
+    
+    <category term="CSS" scheme="https://51itcolorful.com/categories/%E6%8A%80%E6%9C%AF%E7%9F%A5%E8%AF%86/CSS/"/>
+    
+    
+    <category term="CSS" scheme="https://51itcolorful.com/tags/CSS/"/>
+    
+    <category term="box-shadow" scheme="https://51itcolorful.com/tags/box-shadow/"/>
+    
+    <category term="阴影" scheme="https://51itcolorful.com/tags/%E9%98%B4%E5%BD%B1/"/>
+    
+  </entry>
   
   <entry>
     <title>Xcode11新变化：SceneDelegate</title>
